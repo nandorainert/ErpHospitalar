@@ -64,8 +64,8 @@ public class MedicoController {
 	public Medico listarPorId(int id) {
 		try {
 			GenericDAO dao = new MedicoDAOImpl();
-			Medico produto = (Medico) dao.listarPorId(id);
-			return produto;
+			Medico paciente = (Medico) dao.listarPorId(id);
+			return paciente;
 		} catch (Exception e) {
 			System.out.println("Problemas na Controller para listar medico por id " + e.getMessage());
 			e.printStackTrace();
