@@ -88,7 +88,7 @@ public class MedicoDAOImpl implements GenericDAO {
 	public boolean cadastrar(Object object) {
 		Medico medico = (Medico) object;
 		PreparedStatement stmt = null;
-		String sql = "INSERT INTO produto (nome) VALUES (?)";
+		String sql = "INSERT INTO medico (nome) VALUES (?)";
 
 		try {
 			stmt = conn.prepareStatement(sql);
@@ -113,7 +113,7 @@ public class MedicoDAOImpl implements GenericDAO {
 	public boolean alterar(Object object) {
 		Medico medico = (Medico) object;
 		PreparedStatement stmt = null;
-		String sql = "UPDATE produto SET descricao = ? WHERE id = ?";
+		String sql = "UPDATE medico SET nome = ? WHERE id = ?";
 		try {
 			stmt = conn.prepareStatement(sql);
 			stmt.setString(1, medico.getNome());
@@ -121,7 +121,7 @@ public class MedicoDAOImpl implements GenericDAO {
 			stmt.execute();
 			return true;
 		} catch (Exception e) {
-			System.out.println("Problemas na DAO ao cadastrar medico " + e.getMessage());
+			System.out.println("Problemas na DAO ao alterar medico " + e.getMessage());
 			e.printStackTrace();
 			return false;
 		} finally {
